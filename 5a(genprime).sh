@@ -1,18 +1,17 @@
-echo "Enter the number of prime numbers to generate: "
-read -r n
-count=0
-num=2
-while [ $count -lt $n ]; do
-    is_prime=1
-    for ((i = 2; i <= num / 2; i++)); do
-        if [ $((num % i)) -eq 0 ]; then
-            is_prime=0
+echo "enter the value of N to find the prime numbers from 1 to N"
+read N
+flag=0
+echo "the prime numbers from 1 to $N are:"
+echo
+for((i=2;i<=N;i++)); do
+    for((j=2;j<=$((i/2));j++)); do
+        if [ $((i%j)) == 0 ]; then
+            flag=1
             break
         fi
     done
-    if [ $is_prime -eq 1 ]; then
-        echo "$num"
-        ((count++))
+    if [ $flag == 0 ]; then
+        echo -ne " $i"
     fi
-    ((num++))
+    flag=0
 done
