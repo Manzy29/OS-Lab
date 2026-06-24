@@ -1,14 +1,11 @@
-echo "Enter the number of elements: "
-read -r n
-declare -a arr
-echo "Enter the numbers: "
-for ((i = 0; i < n; i++)); do
-    read -r arr[i]
+#!/bin/bash
+echo "Enter array elements"
+read -a arr
+echo ${arr[*]}
+max=0
+for i in ${arr[*]}; do
+if [ $i -gt $max ]; then
+max=$i
+fi
 done
-largest=${arr[0]}
-for ((i = 1; i < n; i++)); do
-    if [ "${arr[i]}" -gt "$largest" ]; then
-        largest=${arr[i]}
-    fi
-done
-echo "The largest number is: $largest"
+echo "max: $max"
