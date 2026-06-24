@@ -1,20 +1,11 @@
-echo "Enter the number of terms: "
-read -r n
-a=0
-b=1
-count=0
-if [ "$n" -le 0 ]; then
-    echo "Please enter a positive integer."
-elif [ "$n" -eq 1 ]; then
-    echo "Fibonacci series: $a"
-else
-    echo "Fibonacci series: "
-    while [ "$count" -lt "$n" ]; do
-        echo -n "$a "
-        fn=$((a + b))
-        a=$b
-        b=$fn
-        count=$((count + 1))
-    done
-    echo
-fi
+#!/bin/bash
+read -p "Enter n: " n
+n1=0
+n2=1
+echo -e "the fibonacci series:\n$n1\n$n2"
+for((i=2;i<=n;i++)); do
+    n3=$((n1+n2))
+echo $n3
+n1=$n2
+n2=$n3
+done
