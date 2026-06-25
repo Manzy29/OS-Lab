@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     pid = fork();
 
     if (pid==0) {
-        execl("./child", "prime", argv[1], argv[2], NULL);
+        execlp("./child", "prime", argv[1], argv[2], NULL);
     } else if (pid > 0) {
         wait(NULL);
         printf("\nParent: child completed!\n");
